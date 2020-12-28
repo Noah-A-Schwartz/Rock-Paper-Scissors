@@ -6,11 +6,11 @@
     
     <button onclick="Game()">Play</button>
     <script type="text/javascript">
-    var round = 1
-    var playerScore = 0;
-    var computerScore = 0;
+    let round = 1
+    let playerScore = 0;
+    let computerScore = 0;
     function computerPlay(){
-        var moves = ["rock", "paper", "scissors"];
+        let moves = ["rock", "paper", "scissors"];
         return moves[Math.floor((Math.random()*3))];
     }
 
@@ -57,7 +57,7 @@
         round++;
     }
     function getPlayerMove(){
-        var playerMove = prompt("Please enter rock, paper, or scissors")
+        let playerMove = prompt("Please enter rock, paper, or scissors")
         if (playerMove != "rock" && playerMove != "paper" && playerMove != "scissors")
             playerMove = prompt("Invalid input, please enter rock, paper, or scissors");
         return playerMove;
@@ -65,8 +65,8 @@
 
     function Game(){
         while(playerScore != 3 || computerScore != 3){
-            var playerMove = getPlayerMove();
-            var computerMove = computerPlay();
+            let playerMove = getPlayerMove();
+            let computerMove = computerPlay();
             PlayRound(playerMove, computerMove);
         }
         if(playerScore > computerScore)
