@@ -6,7 +6,7 @@
     
     <button onclick="Game()">Play</button>
     <script type="text/javascript">
-    let round = 1
+    let round = 1;
     let playerScore = 0;
     let computerScore = 0;
     function computerPlay(){
@@ -14,47 +14,42 @@
         return moves[Math.floor((Math.random()*3))];
     }
 
-    function PlayRound(playerMove, computerMove){
+    function playRound(playerMove, computerMove){
         console.log("You play " + playerMove)
         console.log("Computer plays " + computerMove);
         if (playerMove === computerMove)
-            console.log("Tie!");
+            return "Tie";
         else if (playerMove == "rock"){
             if (computerMove == "paper"){
-                
-                console.log("Computer Wins round " + round);
                 computerScore++;
+                return "Computer Wins round " + round;
             }
             else if(computerMove === "scissors"){
-                console.log("Player wins round " + round)
                 playerScore++;
+                return "Player wins round " + round;
             }
         }
         else if (playerMove == "paper"){
             if (computerMove == "rock"){
-                console.log("Player Wins round " + round);
                 playerScore++;
+                return "Player Wins round " + round;
             }
             else if(computerMove === "scissors"){
-                console.log("Computer wins round " + round)
                 computerScore++;
+                return "Computer wins round " + round;  
             }
         }
         else if (playerMove == "scissors"){
             if (computerMove == "paper"){
-                console.log("Player Wins round " + round);
                 playerScore++;
+                return "Player Wins round " + round; 
             }
             else if(computerMove === "rock"){
-                console.log("Computer wins round " + round)
                 computerScore++;
+                return "Computer wins round " + round;
             }
         }
-        console.log("Scores after round " + round + ":")
-        console.log("Player Score: " + playerScore);
-        console.log("Computer Score: " + computerScore);
-        console.log(" ");
-        round++;
+        
     }
     function getPlayerMove(){
         let playerMove = prompt("Please enter rock, paper, or scissors")
@@ -64,16 +59,24 @@
     }
 
     function Game(){
-        while(playerScore != 3 || computerScore != 3){
+        while(playerScore < 3 && computerScore < 3){
             let playerMove = getPlayerMove();
             let computerMove = computerPlay();
-            PlayRound(playerMove, computerMove);
+            console.log(playRound(playerMove, computerMove));
+            console.log("Scores after round " + round + ":")
+            console.log("Player Score: " + playerScore);
+            console.log("Computer Score: " + computerScore);
+            console.log(" ");
+            round++;
         }
-        if(playerScore > computerScore)
+        if(playerScore == 3)
             console.log("Hooray! Player Wins!")
-        else if(playerScore < computerScore)
+        else 
             console.log("Sorry, you lost.")
-        else console.log("It's a draw!")
+    //reset game
+     round = 1;
+     playerScore = 0;
+     computerScore = 0;
     }
     </script>
 </html>
