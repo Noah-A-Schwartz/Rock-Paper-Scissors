@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Rock, Paper, Scissors!</title>
+    </header>
+    
+    <button onclick="Game()">Play</button>
+    <script type="text/javascript">
+    var round = 1
+    var playerScore = 0;
+    var computerScore = 0;
+    function computerPlay(){
+        var moves = ["rock", "paper", "scissors"];
+        return moves[Math.floor((Math.random()*3))];
+    }
+
+    function PlayRound(playerMove, computerMove){
+        console.log("You play " + playerMove)
+        console.log("Computer plays " + computerMove);
+        if (playerMove === computerMove)
+            console.log("Tie!");
+        else if (playerMove == "rock"){
+            if (computerMove == "paper"){
+                
+                console.log("Computer Wins round " + round);
+                computerScore++;
+            }
+            else if(computerMove === "scissors"){
+                console.log("Player wins round " + round)
+                playerScore++;
+            }
+        }
+        else if (playerMove == "paper"){
+            if (computerMove == "rock"){
+                console.log("Player Wins round " + round);
+                playerScore++;
+            }
+            else if(computerMove === "scissors"){
+                console.log("Computer wins round " + round)
+                computerScore++;
+            }
+        }
+        else if (playerMove == "scissors"){
+            if (computerMove == "paper"){
+                console.log("Player Wins round " + round);
+                playerScore++;
+            }
+            else if(computerMove === "rock"){
+                console.log("Computer wins round " + round)
+                computerScore++;
+            }
+        }
+        console.log("Scores after round " + round + ":")
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + computerScore);
+        console.log();
+        round++;
+    }
+    function getPlayerMove(){
+        var playerMove = prompt("Please enter rock, paper, or scissors")
+        if (playerMove != "rock" && playerMove != "paper" && playerMove != "scissors")
+            playerMove = prompt("Invalid input, please enter rock, paper, or scissors");
+        return playerMove;
+    }
+
+    function Game(){
+        for (i = 1; i <= 5; i++){
+            var playerMove = getPlayerMove();
+            var computerMove = computerPlay();
+            PlayRound(playerMove, computerMove);
+        }
+        if(playerScore > computerScore)
+            console.log("Hooray! Player Wins!")
+        else if(playerScore < computerScore)
+            console.log("Sorry, you lost ):")
+        else console.log("It's a draw!")
+    }
+    </script>
+</html>
