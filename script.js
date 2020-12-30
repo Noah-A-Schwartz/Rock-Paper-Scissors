@@ -7,6 +7,7 @@ function computerPlay(){
     }
 
 function playRound(playerMove, computerMove){
+    document.getElementsByTagName("P")[0].textContent = "You play " + playerMove + "\t Computer plays " + computerMove;
     console.log("You play " + playerMove)
     console.log("Computer plays " + computerMove);
     if (playerMove === computerMove)
@@ -57,6 +58,7 @@ function showButtons(){
 }
 
 function updateGame(){
+        document.getElementsByTagName("P")[1].textContent ="Scores after round " + round + ":\n" + "Player Score: " + playerScore + "\n" + "Computer Score: " + computerScore + "\n"; 
         console.log("Scores after round " + round + ":")
         console.log("Player Score: " + playerScore);
         console.log("Computer Score: " + computerScore);
