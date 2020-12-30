@@ -76,6 +76,8 @@ function updateGame(){
 
 function resetGame(){
     //reset game
+    document.getElementsByTagName("P")[0].textContent = "";
+    document.getElementsByTagName("P")[1].textContent = "";
     round = 1;
     playerScore = 0;
     computerScore = 0;
