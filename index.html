@@ -1,82 +1,19 @@
 <!DOCTYPE html>
 <html>
     <header>
+        <link rel="stylesheet" href="styles.css">
         <title>Rock, Paper, Scissors!</title>
     </header>
-    
-    <button onclick="Game()">Play</button>
-    <script type="text/javascript">
-    let round = 1;
-    let playerScore = 0;
-    let computerScore = 0;
-    function computerPlay(){
-        let moves = ["rock", "paper", "scissors"];
-        return moves[Math.floor((Math.random()*3))];
-    }
 
-    function playRound(playerMove, computerMove){
-        console.log("You play " + playerMove)
-        console.log("Computer plays " + computerMove);
-        if (playerMove === computerMove)
-            return "Tie";
-        else if (playerMove == "rock"){
-            if (computerMove == "paper"){
-                computerScore++;
-                return "Computer Wins round " + round;
-            }
-            else if(computerMove === "scissors"){
-                playerScore++;
-                return "Player wins round " + round;
-            }
-        }
-        else if (playerMove == "paper"){
-            if (computerMove == "rock"){
-                playerScore++;
-                return "Player Wins round " + round;
-            }
-            else if(computerMove === "scissors"){
-                computerScore++;
-                return "Computer wins round " + round;  
-            }
-        }
-        else if (playerMove == "scissors"){
-            if (computerMove == "paper"){
-                playerScore++;
-                return "Player Wins round " + round; 
-            }
-            else if(computerMove === "rock"){
-                computerScore++;
-                return "Computer wins round " + round;
-            }
-        }
-        
-    }
-    function getPlayerMove(){
-        let playerMove = prompt("Please enter rock, paper, or scissors")
-        if (playerMove != "rock" && playerMove != "paper" && playerMove != "scissors")
-            playerMove = prompt("Invalid input, please enter rock, paper, or scissors");
-        return playerMove;
-    }
-
-    function Game(){
-        while(playerScore < 3 && computerScore < 3){
-            let playerMove = getPlayerMove();
-            let computerMove = computerPlay();
-            console.log(playRound(playerMove, computerMove));
-            console.log("Scores after round " + round + ":")
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);
-            console.log(" ");
-            round++;
-        }
-        if(playerScore == 3)
-            console.log("Hooray! Player Wins!")
-        else 
-            console.log("Sorry, you lost.")
-    //reset game
-     round = 1;
-     playerScore = 0;
-     computerScore = 0;
-    }
-    </script>
+<body>
+    <div class = "buttons">
+        <button onclick="showButtons()">Play</button>
+        <div class = "play-buttons">
+            <button value = "rock" onclick = "getPlayerMove(this)" style = "visibility: hidden;">rock</button>
+            <button value = "paper" onclick = "getPlayerMove(this)" style = "visibility: hidden;">paper</button>
+            <button value = "scissors" onclick = "getPlayerMove(this)" style = "visibility: hidden;">scissors</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>   
 </html>
