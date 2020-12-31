@@ -7,7 +7,7 @@ function computerPlay(){
     }
 
 function playRound(playerMove, computerMove){
-    document.getElementsByTagName("P")[0].textContent = "You play " + playerMove + " and Computer plays " + computerMove;
+    document.getElementById("move").textContent ="You played: " + playerMove + " Computer played: " + computerMove;
     if (playerMove === computerMove)
          return -1;
     else if (playerMove == "rock"){
@@ -80,31 +80,30 @@ function startGame(playButton){
         div.style.visibility = "visible";
 
         resetGame();
-        reset = document.querySelector(".reset-button");
+        let reset = document.querySelector(".reset-button");
         reset.style.visibility = "visible";
-        button = document.querySelector('#playbutton');
-        button.style.visibility = "visible";
 }
 
-function updateGame(result){
-        document.getElementById("move").textContent ="Scores after round " +  round + ": ";
-        document.getElementById("round").textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
+function updateGame(result){    
+        document.getElementById("round").textContent ="Scores after round " +  round + ": ";
+        document.getElementById("score").textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
+        let flashText = document.getElementById("flashtext");
         if(result == 0){
-            document.getElementById("flashtext").textContent = "YOU WIN THIS ROUND!"
+            flashText.textContent = "YOU WIN THIS ROUND!"
         }
         else if(result == 1){
-            document.getElementById("flashtext").textContent = "YOU LOSE THIS ROUND!"
+            flashText.textContent = "YOU LOSE THIS ROUND!"
         }
-        else document.getElementById("flashtext").textContent = "ITS A TIE";
-        document.getElementById("flashtext").style.visibility = "visible";
+        else dflashText.textContent = "ITS A TIE";
+        flashText.style.visibility = "visible";
         round++;
     
     if(playerScore == 5){
-        document.getElementById("flashtext").textContent = "YOU WIN THE GAME! Click reset to play again."
+        flashText.textContent = "YOU WIN THE GAME! Click reset to play again."
         disableButtons();
     }
     if(computerScore == 5){
-        document.getElementById("flashtext").textContent = "YOU LOSE THE GAME! Click reset to play again."
+        flashText.textContent = "YOU LOSE THE GAME! Click reset to play again."
         disableButtons();
     }
         
