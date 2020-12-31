@@ -8,8 +8,6 @@ function computerPlay(){
 
 function playRound(playerMove, computerMove){
     document.getElementsByTagName("P")[0].textContent = "You play " + playerMove + " and Computer plays " + computerMove;
-    console.log("You play " + playerMove)
-    console.log("Computer plays " + computerMove);
     if (playerMove === computerMove)
          return -1;
     else if (playerMove == "rock"){
@@ -80,10 +78,7 @@ function startGame(playButton){
         
         let div = document.querySelector(".scores");
         div.style.visibility = "visible";
-        /*div.forEach(function(div){
-            div.style.visibility = "visible;"
-        });
-        */
+
         resetGame();
         reset = document.querySelector(".reset-button");
         reset.style.visibility = "visible";
@@ -102,10 +97,6 @@ function updateGame(result){
         }
         else document.getElementById("flashtext").textContent = "ITS A TIE";
         document.getElementById("flashtext").style.visibility = "visible";
-        console.log("Round: " + round + "")
-        console.log("Player Score: " + playerScore);
-        console.log("Computer Score: " + computerScore);
-        console.log(" ");
         round++;
     
     if(playerScore == 5){
