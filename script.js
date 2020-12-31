@@ -50,6 +50,14 @@ function getPlayerMove(button){
     let result = playRound(playerMove, computerMove);
     updateGame(result); 
 }
+
+function disableButtons(){
+    let div = document.getElementsByClassName("play-buttons")[0];
+        div.childNodes.forEach(function(button){
+            if(button.tagName == "BUTTON")
+            button.disabled="true";
+        }); 
+}
 function showButtons(){
         textAreas = document.getElementsByTagName("DIV");
         textAreas[4].appendChild(document.createElement("p"));
@@ -81,12 +89,16 @@ function updateGame(result){
         console.log("Computer Score: " + computerScore);
         console.log(" ");
         round++;
-    /*
-    if(playerScore == 3)
-        console.log("Hooray! Player Wins!");
-    else if(computerScore == 3)
-        console.log("Sorry, you lost.");
-        */
+    
+    if(playerScore == 5){
+        document.getElementById("flashtext").textContent = "YOU WIN THE GAME! Click reset to play again."
+        disableButtons();
+    }
+    if(computerScore == 5){
+        document.getElementById("flashtext").textContent = "YOU LOSE THE GAME! Click reset to play again."
+        disableButtons();
+    }
+        
 
     
 }
