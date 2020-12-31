@@ -32,7 +32,8 @@ body{
 }
 
 #playbutton{
-    background-image: url("RPS.jfif");
+    background-image: url("RPS.png");
+    background-size: cover;
     color: #404561;
     border-style: solid;
     border-radius: 5px;
