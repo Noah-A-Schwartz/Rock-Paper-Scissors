@@ -7,7 +7,10 @@
 
 <body>
     <div class = "buttons">
-        <button onclick="showButtons()">Play</button>
+        <div>
+            <button id = "playbutton" value = "play" onclick="showButtons()">PLAY</button>
+        </div>
+        <br>
         <div class = "play-buttons">
             <button value = "rock" onclick = "getPlayerMove(this)" style = "visibility: hidden;">Rock</button>
             <button value = "paper" onclick = "getPlayerMove(this)" style = "visibility: hidden;">Paper</button>
@@ -16,8 +19,12 @@
         </div>
     </div>
     <div class = "scores">
-        <p></p>
-        <p></p>
+        <div class="moves"></div>
+        <div class="rounds"></div>
+        <div class="score"></div>
+    </div>
+    <div  class = "winning-text">
+        <p id = "flashtext"></p>
     </div>
 </body>
 <script src="script.js"></script>   
