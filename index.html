@@ -8,20 +8,18 @@
 <body>
     <div class = "buttons">
         <div>
-            <button id = "playbutton" value = "play" onclick="showButtons()">PLAY</button>
+            <button id = "playbutton" value = "play" onclick="startGame(this)">PLAY</button>
         </div>
         <br>
         <div class = "play-buttons">
-            <button value = "rock" onclick = "getPlayerMove(this)" style = "visibility: hidden;">Rock</button>
-            <button value = "paper" onclick = "getPlayerMove(this)" style = "visibility: hidden;">Paper</button>
-            <button value = "scissors" onclick = "getPlayerMove(this)" style = "visibility: hidden;">Scissors</button>
-            <button value = "reset" onclick="resetGame()" style = "visibility: hidden;">Reset</button>
+            <button class="game-button" value = "rock" onclick = "getPlayerMove(this)" style = "visibility: hidden;">Rock</button>
+            <button class="game-button" value = "paper" onclick = "getPlayerMove(this)" style = "visibility: hidden;">Paper</button>
+            <button class="game-button" value = "scissors" onclick = "getPlayerMove(this)" style = "visibility: hidden;">Scissors</button>
+            <button class = "reset-button" value = "reset" onclick="resetGame()" style = "visibility: hidden;">Reset</button>
         </div>
     </div>
     <div class = "scores">
-        <div class="moves"></div>
-        <div class="rounds"></div>
-        <div class="score"></div>
+        
     </div>
     <div  class = "winning-text">
         <p id = "flashtext"></p>

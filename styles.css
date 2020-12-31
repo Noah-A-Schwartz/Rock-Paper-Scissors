@@ -47,7 +47,6 @@ body{
 .scores div > p{
    background-color:#E9B45F;
    padding: 30px;
-   border-radius: 1px; 
    font-size: 25px; 
    justify-content: center;
    align-items: center;
@@ -56,8 +55,16 @@ body{
    text-align: center; 
    color: #404561;
 }
+.scores > *{
+   margin: 10px;
+   border-style:ridge;
+   border-radius: 3px; 
+   border-width: 5px;
+   border-color: #EDE9DC;
+}
 
 .winning-text {
+    padding: 2px;
     font-size: 50px;
     font-weight: 20px;
     font-family: sans-serif;

@@ -52,25 +52,41 @@ function getPlayerMove(button){
 }
 
 function disableButtons(){
-    let div = document.getElementsByClassName("play-buttons")[0];
-        div.childNodes.forEach(function(button){
-            if(button.tagName == "BUTTON" && button.value != "reset")
-            button.disabled="true";
+    let div = document.querySelectorAll(".game-button");
+        div.forEach(function(button){
+            button.disabled=true;
         }); 
 }
-function showButtons(){
-        textAreas = document.getElementsByTagName("DIV");
-        textAreas[4].appendChild(document.createElement("p"));
-        textAreas[5].appendChild(document.createElement("p"));
-        textAreas[6].appendChild(document.createElement("p"));
-        resetGame();
-        let div = document.getElementsByClassName("play-buttons")[0];
-        div.childNodes.forEach(function(button){
-            if(button.tagName == "BUTTON")
-            button.style.visibility="visible";
+
+function enableButtons(){
+    let div = document.querySelectorAll(".game-button");
+        div.forEach(function(button){
+            button.disabled=false;
         }); 
+        reset = document.querySelector(".reset-button");
+        reset.disabled = false;
+        
+}
+
+function startGame(playButton){
+        playButton.disabled = "true";
+        let div = document.querySelector(".scores");
+        for(i = 0; i < 3; i++){
+            div.appendChild(document.createElement("DIV")).classList.add("results");
+        }
+        textAreas = document.querySelectorAll(".results")
+        textAreas.forEach(function(div){
+            div.appendChild(document.createElement("p"));
+        })
+        div = document.querySelectorAll(".game-button");
+        div.forEach(function(button){
+            button.style.visibility = "visible";
+        }); 
+        resetGame();
+        reset = document.querySelector(".reset-button");
+        reset.style.visibility = "visible";
         button = document.getElementsByTagName("BUTTON")[0];
-        button.disabled = "true";
+        button.style.visibility = "visible";
 }
 
 function updateGame(result){
@@ -84,7 +100,7 @@ function updateGame(result){
         }
         else document.getElementById("flashtext").textContent = "ITS A TIE";
         document.getElementById("flashtext").style.visibility = "visible";
-        console.log("Scores after round " + round + ":")
+        console.log("Round: " + round + "")
         console.log("Player Score: " + playerScore);
         console.log("Computer Score: " + computerScore);
         console.log(" ");
@@ -104,12 +120,14 @@ function updateGame(result){
 }
 
 function resetGame(){
-    //reset game
+    
     round = 1;
     playerScore = 0;
     computerScore = 0;
-    document.getElementsByTagName("P")[0].textContent = "";
-    document.getElementsByTagName("P")[1].textContent = "";
+    document.getElementsByTagName("P")[0].textContent = "Player: " + "Computer: ";
+    document.getElementsByTagName("P")[1].textContent = "Round: ";
     document.getElementsByTagName("P")[2].textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
     document.getElementById("flashtext").style.visibility = "hidden";
+    enableButtons();
+    
 }
