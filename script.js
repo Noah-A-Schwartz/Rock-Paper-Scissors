@@ -7,7 +7,7 @@ function computerPlay(){
     }
 
 function playRound(playerMove, computerMove){
-    document.getElementById("move").textContent ="You played: " + playerMove + " Computer played: " + computerMove;
+    document.getElementById("move").textContent ="Computer played: " + computerMove;
     if (playerMove === computerMove)
          return -1;
     else if (playerMove == "rock"){
@@ -111,7 +111,7 @@ function resetGame(){
     round = 1;
     playerScore = 0;
     computerScore = 0;
-    document.getElementById("move").textContent = "Player: " + "Computer: ";
+    document.getElementById("move").textContent = "Computer Plays: ";
     document.getElementById("round").textContent = "Round: ";
     document.getElementById("score").textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
     document.getElementById("flashtext").style.visibility = "hidden";
