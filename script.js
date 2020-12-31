@@ -54,7 +54,7 @@ function getPlayerMove(button){
 function disableButtons(){
     let div = document.getElementsByClassName("play-buttons")[0];
         div.childNodes.forEach(function(button){
-            if(button.tagName == "BUTTON")
+            if(button.tagName == "BUTTON" && button.value != "reset")
             button.disabled="true";
         }); 
 }
