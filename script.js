@@ -27,7 +27,7 @@ function playRound(playerMove, computerMove){
         }
         else if(computerMove === "scissors"){
             computerScore++;
-            return 1  ;
+            return 1;
         }
     }
     else if (playerMove == "scissors"){
@@ -82,7 +82,7 @@ function startGame(playButton){
         resetGame();
         reset = document.querySelector(".reset-button");
         reset.style.visibility = "visible";
-        button = document.getElementsByTagName("BUTTON")[0];
+        button = document.querySelector('#playbutton');
         button.style.visibility = "visible";
 }
 
