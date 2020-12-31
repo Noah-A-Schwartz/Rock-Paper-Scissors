@@ -69,19 +69,21 @@ function enableButtons(){
 }
 
 function startGame(playButton){
+        let button = document.querySelectorAll(".game-button");
+        button.forEach(function(button){
+        button.style.visibility = "visible";
+    }); 
+        button = document.querySelector(".reset-button");
+        button.style.visibility = "visible";
         playButton.disabled = "true";
+
+        
         let div = document.querySelector(".scores");
-        for(i = 0; i < 3; i++){
-            div.appendChild(document.createElement("DIV")).classList.add("results");
-        }
-        textAreas = document.querySelectorAll(".results")
-        textAreas.forEach(function(div){
-            div.appendChild(document.createElement("p"));
-        })
-        div = document.querySelectorAll(".game-button");
-        div.forEach(function(button){
-            button.style.visibility = "visible";
-        }); 
+        div.style.visibility = "visible";
+        /*div.forEach(function(div){
+            div.style.visibility = "visible;"
+        });
+        */
         resetGame();
         reset = document.querySelector(".reset-button");
         reset.style.visibility = "visible";
@@ -90,8 +92,8 @@ function startGame(playButton){
 }
 
 function updateGame(result){
-        document.getElementsByTagName("P")[1].textContent ="Scores after round " +  round + ": ";
-        document.getElementsByTagName("P")[2].textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
+        document.getElementById("move").textContent ="Scores after round " +  round + ": ";
+        document.getElementById("round").textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
         if(result == 0){
             document.getElementById("flashtext").textContent = "YOU WIN THIS ROUND!"
         }
@@ -124,9 +126,9 @@ function resetGame(){
     round = 1;
     playerScore = 0;
     computerScore = 0;
-    document.getElementsByTagName("P")[0].textContent = "Player: " + "Computer: ";
-    document.getElementsByTagName("P")[1].textContent = "Round: ";
-    document.getElementsByTagName("P")[2].textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
+    document.getElementById("move").textContent = "Player: " + "Computer: ";
+    document.getElementById("round").textContent = "Round: ";
+    document.getElementById("score").textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
     document.getElementById("flashtext").style.visibility = "hidden";
     enableButtons();
     
