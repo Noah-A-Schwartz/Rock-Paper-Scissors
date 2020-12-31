@@ -62,8 +62,7 @@ function enableButtons(){
             button.disabled=false;
         }); 
         reset = document.querySelector(".reset-button");
-        reset.disabled = false;
-        
+        reset.disabled = false;   
 }
 
 function startGame(playButton){
@@ -94,7 +93,7 @@ function updateGame(result){
         else if(result == 1){
             flashText.textContent = "YOU LOSE THIS ROUND!"
         }
-        else dflashText.textContent = "ITS A TIE";
+        else flashText.textContent = "ITS A TIE";
         flashText.style.visibility = "visible";
         round++;
     
@@ -106,13 +105,9 @@ function updateGame(result){
         flashText.textContent = "YOU LOSE THE GAME! Click reset to play again."
         disableButtons();
     }
-        
-
-    
 }
 
 function resetGame(){
-    
     round = 1;
     playerScore = 0;
     computerScore = 0;
@@ -121,5 +116,4 @@ function resetGame(){
     document.getElementById("score").textContent = "Player: " + playerScore + "\n" + "Computer: " + computerScore;
     document.getElementById("flashtext").style.visibility = "hidden";
     enableButtons();
-    
 }
